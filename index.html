@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="ja">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>リモート無尽</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="videosContainer">
+        <video id="myStream" autoplay muted="true"></video>
+    </div>
+
+    <div class="myControllerContainer">
+        <div id="end-call">
+            <button>退室</button>
+            <br><br><br><br><br>
+            <h4>任意設定項目</h4>
+        </div>
+        <form id="make-call">
+            <button type="submit">入室</button>
+            <br><br><br><br><br>
+            <h4>任意設定項目</h4>
+            <input type="text" placeholder="Room name" id="join-room">
+        </form>
+
+        <div class="select">
+            <label for="audioSource">音声: </label><select id="audioSource"></select>
+        </div>
+        <div class="select">
+            <label for="videoSource">映像: </label><select id="videoSource"></select>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="js/skyway-latest.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
