@@ -190,7 +190,7 @@ $(function () {
       name = uuid();
       $("#roomName").val(name);
     }
-    let target = location.href + "?room=" + name;
+    let target = location.href.split("?room=")[0] + "?room=" + name;
     $("#roomUrl").val(target);
     $("#roomLink").attr("href", target);
     $("#roomUrlQr").attr("src", qrBaseUrl + encodeURIComponent(target));
