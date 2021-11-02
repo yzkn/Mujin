@@ -4,8 +4,12 @@ $(function () {
   let existingCall = null;
   let audioSelect = $("#audioSource");
   let videoSelect = $("#videoSource");
+  
+  let roomName = null;
 
   get_query();
+
+  set_room_link();
 
   navigator.mediaDevices
     .enumerateDevices()
@@ -55,9 +59,12 @@ $(function () {
     alert(err.message);
   });
 
+  $("#end-call").click(function () {
+    existingCall.close();
+  });
+
   $("#make-call").submit(function (e) {
     e.preventDefault();
-    let roomName = $("#join-room").val();
     if (!roomName) {
       return;
     }
@@ -65,8 +72,13 @@ $(function () {
     setupCallEventHandlers(call);
   });
 
-  $("#end-call").click(function () {
-    existingCall.close();
+  $("#roomName").keyup(function () {
+    set_room_link()
+  });
+
+  $("#roomUrl").click(function () {
+    $("#roomUrl").select();
+    navigator.clipboard.writeText($("#roomUrl").val());
   });
 
   function setupGetUserMedia() {
@@ -168,12 +180,38 @@ $(function () {
       query_key = array[0];
       query_val = array[1];
       if ("room" == query_key) {
-        $("#join-room").val(query_val);
-        break;
+        if(query_val.length > 0) {
+          roomName = query_val;
+          $(".inviteContainer").hide();
+        }
       }
     }
 
     return vars;
+  }
+
+  function set_room_link() {
+    let name = $("#roomName").val();
+    if(!name) {
+      name = uuid();
+      $("#roomName").val(name);
+    }
+    let target = location.href + "?room=" + name;
+    $("#roomUrl").val(target);
+    $("#roomLink").attr("href", target);
+  }
+
+  function uuid() {
+    var uuid = "", i, random;
+    for (i = 0; i < 32; i++) {
+      random = Math.random() * 16 | 0;
+  
+      if (i == 8 || i == 12 || i == 16 || i == 20) {
+        uuid += "-"
+      }
+      uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+    }
+    return uuid;
   }
 
   function addVideo(stream) {

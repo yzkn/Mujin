@@ -8,6 +8,11 @@
 </head>
 
 <body>
+    <div class="inviteContainer">
+        部屋名: <input type="text" placeholder="Room name" id="roomName"><br>
+        この<a href="#" id="roomLink">URL</a>を参加者に共有してください: <input type="text" placeholder="URL to share" id="roomUrl">
+    </div>
+
     <div class="videosContainer">
         <video id="myStream" autoplay muted="true"></video>
     </div>
@@ -15,14 +20,9 @@
     <div class="myControllerContainer">
         <div id="end-call">
             <button>退室</button>
-            <br><br><br><br><br>
-            <h4>任意設定項目</h4>
         </div>
         <form id="make-call">
             <button type="submit">入室</button>
-            <br><br><br><br><br>
-            <h4>任意設定項目</h4>
-            <input type="text" placeholder="Room name" id="join-room">
         </form>
 
         <div class="select">
