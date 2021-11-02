@@ -21,6 +21,11 @@ html {
     color: aqua;
 }
 
+.inviteContainer iframe {
+    height: 300px;
+    width: 450px;
+}
+
 .videosContainer {
     height: 100%;
     left: 0;

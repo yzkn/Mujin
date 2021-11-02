@@ -1,4 +1,5 @@
 $(function () {
+  const qrBaseUrl = "https://ya-androidapp.github.io/BarcodeGen/?data=";
   let localStream = null;
   let peer = null;
   let existingCall = null;
@@ -167,27 +168,20 @@ $(function () {
   }
 
   function get_query() {
-    var vars = [],
-      max = 0,
-      hash = "",
-      array = "";
-    var url = window.location.search;
-
-    hash = url.slice(1).split("&");
-    max = hash.length;
+    var array,
+        url = window.location.search,
+        hash = url.slice(1).split("&"),
+        max = hash.length;
     for (var i = 0; i < max; i++) {
       array = hash[i].split("=");
-      query_key = array[0];
-      query_val = array[1];
-      if ("room" == query_key) {
+      if ("room" == array[0]) {
+        var query_val = array[1];
         if(query_val.length > 0) {
           roomName = query_val;
           $(".inviteContainer").hide();
         }
       }
     }
-
-    return vars;
   }
 
   function set_room_link() {
@@ -199,6 +193,7 @@ $(function () {
     let target = location.href + "?room=" + name;
     $("#roomUrl").val(target);
     $("#roomLink").attr("href", target);
+    $("#roomUrlQr").attr("src", qrBaseUrl + encodeURIComponent(target));
   }
 
   function uuid() {
