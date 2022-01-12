@@ -10,12 +10,12 @@
 <body>
     <div class="inviteContainer">
         部屋名: <input type="text" placeholder="Room name" id="roomName"><br>
-        この<a href="#" id="roomLink">URL</a>を参加者に共有してください: <input type="text" placeholder="URL to share" id="roomUrl"><br>
+        この<a href="#" id="roomLink">URL</a>を参加者に共有してください: <input type="text" placeholder="URL to share"
+            id="roomUrl"><br>
         <iframe id="roomUrlQr"></iframe>
     </div>
 
     <div class="videosContainer">
-        <video id="myStream" autoplay muted="true"></video>
     </div>
 
     <div class="myControllerContainer">
@@ -32,6 +32,8 @@
         <div class="select">
             <label for="videoSource">映像: </label><select id="videoSource"></select>
         </div>
+
+        <video id="myStream" autoplay muted="true"></video>
     </div>
 
     <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>

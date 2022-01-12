@@ -28,19 +28,19 @@ html {
 
 .videosContainer {
     height: 100%;
-    left: 0;
+    left: calc(20% + 20px);
     position: absolute;
     top: 0;
-    width: 100%;
+    width: calc(80% - 20px);
 }
 
 .myControllerContainer {
     color: white;
-    height: 50%;
+    height: 70%;
     padding-left: 20px;
     position: absolute;
-    top: 50%;
-    width: 50%;
+    top: 30%;
+    width: 20%;
 }
 
 .select,
@@ -95,6 +95,11 @@ button:hover {
 video {
     background: black;
     float: left;
+}
+
+video#myStream {
+    height: 240px;
+    width: 320;
 }
 
 .videosContainer video {
