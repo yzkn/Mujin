@@ -5,7 +5,7 @@ $(function () {
   let existingCall = null;
   let audioSelect = $("#audioSource");
   let videoSelect = $("#videoSource");
-  
+
   let roomName = null;
 
   get_query();
@@ -71,6 +71,10 @@ $(function () {
     }
     const call = peer.joinRoom(roomName, { mode: "sfu", stream: localStream });
     setupCallEventHandlers(call);
+  });
+
+  $("#toggleMyControllerContainer").click(function () {
+    $("#myControllerContainer").toggle();
   });
 
   $("#roomName").keyup(function () {
@@ -169,14 +173,14 @@ $(function () {
 
   function get_query() {
     var array,
-        url = window.location.search,
-        hash = url.slice(1).split("&"),
-        max = hash.length;
+      url = window.location.search,
+      hash = url.slice(1).split("&"),
+      max = hash.length;
     for (var i = 0; i < max; i++) {
       array = hash[i].split("=");
       if ("room" == array[0]) {
         var query_val = array[1];
-        if(query_val.length > 0) {
+        if (query_val.length > 0) {
           roomName = query_val;
           $(".inviteContainer").hide();
         }
@@ -186,7 +190,7 @@ $(function () {
 
   function set_room_link() {
     let name = $("#roomName").val();
-    if(!name) {
+    if (!name) {
       name = uuid();
       $("#roomName").val(name);
     }
@@ -200,7 +204,7 @@ $(function () {
     var uuid = "", i, random;
     for (i = 0; i < 32; i++) {
       random = Math.random() * 16 | 0;
-  
+
       if (i == 8 || i == 12 || i == 16 || i == 20) {
         uuid += "-"
       }

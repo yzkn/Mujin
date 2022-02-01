@@ -18,20 +18,21 @@
     <div class="videosContainer">
     </div>
 
-    <div class="myControllerContainer">
-        <div id="end-call">
-            <button>退室</button>
-        </div>
-        <form id="make-call">
-            <button type="submit">入室</button>
-        </form>
-
+    <button id="toggleMyControllerContainer"> &gt; </button>
+    <div id="myControllerContainer">
         <div class="select">
             <label for="audioSource">音声: </label><select id="audioSource"></select>
         </div>
         <div class="select">
             <label for="videoSource">映像: </label><select id="videoSource"></select>
         </div>
+
+        <div id="end-call">
+            <button class="large-button">退室</button>
+        </div>
+        <form id="make-call">
+            <button type="submit" class="large-button">入室</button>
+        </form>
 
         <video id="myStream" autoplay muted="true"></video>
     </div>
