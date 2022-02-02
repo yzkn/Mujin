@@ -15,6 +15,17 @@ $(function () {
   navigator.mediaDevices
     .enumerateDevices()
     .then(function (deviceInfos) {
+      let firstoption = $("<option>");
+      firstoption.val("Black");
+      firstoption.text("Black");
+      videoSelect.append(firstoption);
+
+
+      let secondoption = $("<option>");
+      secondoption.val("Display");
+      secondoption.text("Display");
+      videoSelect.append(secondoption);
+
       for (let i = 0; i !== deviceInfos.length; ++i) {
         let deviceInfo = deviceInfos[i];
         let option = $("<option>");
@@ -32,11 +43,6 @@ $(function () {
           videoSelect.append(option);
         }
       }
-
-      let firstoption = $("<option>");
-      firstoption.val("Display");
-      firstoption.text("Display");
-      videoSelect.append(firstoption);
 
       videoSelect.on("change", setupGetUserMedia);
       audioSelect.on("change", setupGetUserMedia);
@@ -108,20 +114,28 @@ $(function () {
           console.error("mediaDevice.getDisplayMedia() error:", error);
           return;
         });
+    } else if (videoSource == "Black") {
+      let blackCanvas = document.createElement("canvas");
+      blackCanvas.width = 1;
+      blackCanvas.height = 1;
+      let context = blackCanvas.getContext('2d');
+      context.fillStyle = "rgb(0,0,0)";
+      context.fillRect(0, 0, 1, 1);
+      document.body.appendChild(blackCanvas);
+      let stream = blackCanvas.captureStream(25);
+
+      $("#myStream").get(0).srcObject = stream;
+      localStream = stream;
+
+      if (existingCall) {
+        existingCall.replaceStream(stream);
+      }
     } else {
 
       let constraints = {
         audio: { deviceId: { exact: audioSource } },
         video: { deviceId: { exact: videoSource } },
       };
-      //constraints.video.width = {
-      //    min: 320,
-      //    max: 320
-      //};
-      //constraints.video.height = {
-      //    min: 240,
-      //    max: 240
-      //};
 
       if (localStream) {
         localStream = null;
