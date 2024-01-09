@@ -1,5 +1,5 @@
 $(function () {
-  const qrBaseUrl = "https://ya-androidapp.github.io/BarcodeGen/?data=";
+  const qrBaseUrl = "https://yzkn.github.io/BarcodeGen/?data=";
   let localStream = null;
   let peer = null;
   let existingCall = null;

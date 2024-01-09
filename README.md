@@ -8,7 +8,7 @@ Share に参加するために調べていたところ、ユーザー登録な�
 
 ### 主催者
 
-- [https://ya-androidapp.github.io/Mujin?room=AAAAAAAAAAAAAAAAAAAA](https://ya-androidapp.github.io/Mujin?room=AAAAAAAAAAAAAAAAAAAA) のような URL を作り、ゲストに送ります。<br>※ `AAAAAAAAAAAAAAAAAAAA` の部分は他所と被らないような、長めで複雑な文字列にします）
+- [https://yzkn.github.io/Mujin?room=AAAAAAAAAAAAAAAAAAAA](https://yzkn.github.io/Mujin?room=AAAAAAAAAAAAAAAAAAAA) のような URL を作り、ゲストに送ります。<br>※ `AAAAAAAAAAAAAAAAAAAA` の部分は他所と被らないような、長めで複雑な文字列にします）
 
 ### ゲスト
 
@@ -27,4 +27,4 @@ Share に参加するために調べていたところ、ユーザー登録な�
 
 ---
 
-Copyright (c) 2022 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.
+Copyright (c) 2024 yzkn(https://github.com/yzkn) All rights reserved.
